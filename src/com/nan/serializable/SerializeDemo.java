@@ -42,6 +42,7 @@ public class SerializeDemo {
 	
 	
 	
+	@SuppressWarnings("unused")
 	public static void deserialize() {
 		User user = null;
 		try {
