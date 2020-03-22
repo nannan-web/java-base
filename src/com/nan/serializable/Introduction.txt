@@ -1,3 +1,10 @@
+Serializable接口的定义：
+　　public interface Serializable{}
+　　 Serializable 接口之所以定义为空，是因为它只起到了一个标识的作用，告诉程序实现了它的对象是可以被序列化的，但真正序列化和反序列化的操作并不需要它来完成。
+　　static和transient修饰的字段不能序列化
+
+针对目标：对象
+
 一、什么是序列化与反序列化？
 	Java 序列化是指把 Java 对象转换为字节序列的过程；
 	Java 反序列化是指把字节序列恢复为 Java 对象的过程；
@@ -28,5 +35,10 @@
 	实现 Externalizable 接口
 	
 	Externalizable继承了Serializable，该接口中定义了两个抽象方法：writeExternal()与readExternal()。
-	当使用Externalizable接口来进行序列化与反序列化的时候需要开发人员重写writeExternal()与readExternal()方法。由于上面的代码中，并没有在这两个方法中定义序列化实现细节，所以输出的内容为空。还有一点值得注意：在使用Externalizable进行序列化的时候，在读取对象时，会调用被序列化类的无参构造器去创建一个新的对象，然后再将被保存对象的字段的值分别填充到新对象中。所以，实现Externalizable接口的类必须要提供一个public的无参的构造器。
+	当使用Externalizable接口来进行序列化与反序列化的时候需要开发人员重写writeExternal()与readExternal()方法。
+	由于上面的代码中，并没有在这两个方法中定义序列化实现细节，所以输出的内容为空。还有一点值得注意：在使用Externalizable进行序列化的时候，在读取对象时，会调用被序列化类的无参构造器去创建一个新的对象，然后再将被保存对象的字段的值分别填充到新对象中。所以，实现Externalizable接口的类必须要提供一个public的无参的构造器。
+	
+序列化运行时使用一个称为 serialVersionUID 的版本号与每个可序列化类相关联，
+该序列号在反序列化过程中用于验证序列化对象的发送者和接收者是否为该对象加载了与序列化兼容的类。
+如果接收者加载的该对象的类的 serialVersionUID 与对应的发送者的类的版本号不同，则反序列化将会导致 InvalidClassException
 ：
