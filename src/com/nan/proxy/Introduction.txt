@@ -1,0 +1,7 @@
+JDK动态代理是对接口的代理
+	步骤
+		1:有一个接口
+		2:接口的实现类
+		3:创建一个InvocationHandler:用来调用目标类
+		4:Proxy.newProxyInstance示例化代理
+		5:调用

@@ -22,7 +22,7 @@ public class User implements Serializable {
 
 	public int age;
 	
-	public static int staticVar = 5;
+	public static int staticVar = 6;
 	
 	public transient int num;
 
@@ -52,7 +52,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", age=" + age + ", num=" + num + "]";
+		return "User [name=" + name + ", age=" + age + ", num=" + num + ", staticVar=" + staticVar + "]";
 	}
 
 

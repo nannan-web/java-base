@@ -26,7 +26,7 @@ public class SerializeDemo {
 		User user = new User();
 		user.setName("张三");
 		user.setAge(10);
-//		user.setNum(1);
+		user.setNum(1);
 		try {
 			FileOutputStream fileOut = new FileOutputStream(
 					"/Users/snn/dev/eclipse-workspace/java-base/doc/SerializeDemoUser");
@@ -42,9 +42,8 @@ public class SerializeDemo {
 	
 	
 	
-	@SuppressWarnings("unused")
 	public static void deserialize() {
-		User user = null;
+		User user = new User();
 		try {
 			FileInputStream fileIn = new FileInputStream("/Users/snn/dev/eclipse-workspace/java-base/doc/SerializeDemoUser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -59,6 +58,7 @@ public class SerializeDemo {
 			c.printStackTrace();
 			return;
 		}
+		System.err.println(user.toString());
 	}
 
 
